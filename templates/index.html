@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .input-group input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .input-group input[type="text"]:focus {
+            border-color: #007bff;
+        }
+        .input-group input[type="text"]::placeholder {
+            color: #aaa;
+        }
+        button[type="submit"] {
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .recommendation {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .recommendation:hover {
+            transform: translateY(-5px);
+        }
+        .recommendation img {
+            max-width: 120px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .recommendation div {
+            flex: 1;
+        }
+        .recommendation h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .recommendation p {
+            margin: 0;
+            color: #666;
+        }
+        .recommendation p strong {
+            color: #333;
+        }
+        .message {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Recommender</h1>
+        <form method="POST">
+            <div class="input-group">
+                <input type="text" id="book_name" name="book_name" required placeholder="Enter your favorite book...">
+            </div>
+            <button type="submit">Get Recommendations</button>
+        </form>
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+
+        {% if recommendations %}
+            {% for recommendation in recommendations %}
+                <div class="recommendation">
+                    <img src="{{ recommendation.cover_image_uri }}" alt="{{ recommendation.title }}">
+                    <div>
+                        <h3>{{ recommendation.title }}</h3>
+                        <p><strong>Author:</strong> {{ recommendation.author }}</p>
+                        <p><strong>Published:</strong> {{ recommendation.publication_info }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

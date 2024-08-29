@@ -4,7 +4,7 @@ import difflib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-book_data = pd.read_csv('COPY PATH')
+book_data = pd.read_csv('/Users/anam301/PycharmProjects/Machine_Learning/Machine_Learning/Book_Details.csv')
 book_data = book_data.reset_index()
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
