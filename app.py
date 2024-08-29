@@ -8,7 +8,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Load and preprocess the dataset
-book_data = pd.read_csv('/Users/anam301/PycharmProjects/Machine_Learning/Machine_Learning/Book_Details.csv')
+book_data = pd.read_csv('')
 book_data = book_data.reset_index()
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
