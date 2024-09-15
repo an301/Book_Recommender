@@ -129,11 +129,10 @@
         {% if recommendations %}
             {% for recommendation in recommendations %}
                 <div class="recommendation">
-                    <img src="{{ recommendation.cover_image_uri }}" alt="{{ recommendation.title }}">
+                    <img src="{{ recommendation.thumbnail }}" alt="{{ recommendation.title }}">
                     <div>
                         <h3>{{ recommendation.title }}</h3>
-                        <p><strong>Author:</strong> {{ recommendation.author }}</p>
-                        <p><strong>Published:</strong> {{ recommendation.publication_info }}</p>
+                        <p><strong>Published Year:</strong> {{ recommendation.published_year }}</p>
                     </div>
                 </div>
             {% endfor %}
