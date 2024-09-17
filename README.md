@@ -37,5 +37,5 @@ The dataset includes various book attributes, such as:
 
 ## How to Run
 
-1. Open this website and enter a book: 
+1. Open this website and enter a book: https://an301.github.io/Book_Recommender/
 2. Click button to get recommendations
