@@ -34,6 +34,7 @@ The dataset includes various book attributes, such as:
 
 - Improving recommendation accuracy by fine-tuning the feature weighting.
 - Allowing users to search based on different criteria (e.g., authors, categories).
+- Adding collaborative-filtering components.
 
 ## How to Run
 
